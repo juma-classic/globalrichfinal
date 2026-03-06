@@ -154,19 +154,92 @@ const BotBuilderIcon = () => (
 
 const ChartsIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path d='M3 3v18h18' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
-        <path
-            d='M7 14l3-3 3 3 5-7'
-            stroke='currentColor'
-            strokeWidth='2'
+        <defs>
+            <style>
+                {`
+                    @keyframes candlePulse1 {
+                        0%, 100% { opacity: 0.8; transform: scaleY(1); }
+                        50% { opacity: 1; transform: scaleY(1.1); }
+                    }
+                    @keyframes candlePulse2 {
+                        0%, 100% { opacity: 0.8; transform: scaleY(1); }
+                        50% { opacity: 1; transform: scaleY(1.15); }
+                    }
+                    @keyframes candlePulse3 {
+                        0%, 100% { opacity: 0.8; transform: scaleY(1); }
+                        50% { opacity: 1; transform: scaleY(1.08); }
+                    }
+                    @keyframes trendGlow {
+                        0%, 100% { opacity: 0.6; }
+                        50% { opacity: 1; }
+                    }
+                    @keyframes volumePulse {
+                        0%, 100% { opacity: 0.5; transform: scaleY(1); }
+                        50% { opacity: 0.8; transform: scaleY(1.2); }
+                    }
+                    .candle1 { animation: candlePulse1 2s ease-in-out infinite; transform-origin: center; }
+                    .candle2 { animation: candlePulse2 2.3s ease-in-out infinite 0.3s; transform-origin: center; }
+                    .candle3 { animation: candlePulse3 2.1s ease-in-out infinite 0.6s; transform-origin: center; }
+                    .candle4 { animation: candlePulse1 2.4s ease-in-out infinite 0.9s; transform-origin: center; }
+                    .candle5 { animation: candlePulse2 2.2s ease-in-out infinite 1.2s; transform-origin: center; }
+                    .trend-line { animation: trendGlow 3s ease-in-out infinite; }
+                    .volume-bar { animation: volumePulse 2s ease-in-out infinite; transform-origin: bottom; }
+                `}
+            </style>
+        </defs>
+        
+        {/* Chart axes */}
+        <path d='M3 3v18h18' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' opacity='0.4' />
+        
+        {/* Candlestick 1 - Bullish (Green) */}
+        <g className='candle1'>
+            <line x1='5' y1='6' x2='5' y2='14' stroke='#00ff88' strokeWidth='1' />
+            <rect x='4' y='8' width='2' height='4' fill='#00ff88' stroke='#00ff88' strokeWidth='0.5' />
+        </g>
+        
+        {/* Candlestick 2 - Bearish (Red) */}
+        <g className='candle2'>
+            <line x1='8' y1='8' x2='8' y2='16' stroke='#ff4444' strokeWidth='1' />
+            <rect x='7' y='10' width='2' height='5' fill='#ff4444' stroke='#ff4444' strokeWidth='0.5' />
+        </g>
+        
+        {/* Candlestick 3 - Bullish (Green) */}
+        <g className='candle3'>
+            <line x1='11' y1='9' x2='11' y2='15' stroke='#00ff88' strokeWidth='1' />
+            <rect x='10' y='10' width='2' height='3' fill='#00ff88' stroke='#00ff88' strokeWidth='0.5' />
+        </g>
+        
+        {/* Candlestick 4 - Bullish (Green) */}
+        <g className='candle4'>
+            <line x1='14' y1='5' x2='14' y2='12' stroke='#00ff88' strokeWidth='1' />
+            <rect x='13' y='6' width='2' height='4' fill='#00ff88' stroke='#00ff88' strokeWidth='0.5' />
+        </g>
+        
+        {/* Candlestick 5 - Bearish (Red) */}
+        <g className='candle5'>
+            <line x1='17' y1='7' x2='17' y2='13' stroke='#ff4444' strokeWidth='1' />
+            <rect x='16' y='8' width='2' height='3' fill='#ff4444' stroke='#ff4444' strokeWidth='0.5' />
+        </g>
+        
+        {/* Trend line weaving through candles */}
+        <path 
+            className='trend-line'
+            d='M4 12 L7 14 L10 11 L13 9 L16 10 L19 7' 
+            stroke='#ffd700' 
+            strokeWidth='1.5' 
             strokeLinecap='round'
             strokeLinejoin='round'
+            fill='none'
         />
-        <circle cx='7' cy='14' r='1.5' fill='#ffd700' />
-        <circle cx='10' cy='11' r='1.5' fill='#ffd700' />
-        <circle cx='13' cy='14' r='1.5' fill='#ffd700' />
-        <circle cx='18' cy='7' r='1.5' fill='#ffd700' />
-        <path d='M18 7v3m0 0h-3m3 0l-5 7' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' opacity='0.5' />
+        
+        {/* Volume bars at bottom */}
+        <g className='volume-bar'>
+            <rect x='4' y='19' width='1.5' height='2' fill='#00bcd4' opacity='0.6' />
+            <rect x='7' y='18' width='1.5' height='3' fill='#00bcd4' opacity='0.6' />
+            <rect x='10' y='19.5' width='1.5' height='1.5' fill='#00bcd4' opacity='0.6' />
+            <rect x='13' y='17' width='1.5' height='4' fill='#00bcd4' opacity='0.6' />
+            <rect x='16' y='18.5' width='1.5' height='2.5' fill='#00bcd4' opacity='0.6' />
+        </g>
     </svg>
 );
 
