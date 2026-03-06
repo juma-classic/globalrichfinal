@@ -2027,101 +2027,189 @@ const AppWrapper = observer(() => {
                         {/* MORE OPTIONS TAB - Consolidates Scanner, Analyzer, Calculator, Copy Trading, HacksAnalysis */}
                         <div
                             label={
-                                <MoreOptionsDropdown
-                                    options={[
-                                        {
-                                            id: 'scanner',
-                                            label: 'Scanner',
-                                            icon: <TrackSignalsIcon />,
-                                            onClick: () => setMoreOptionsContent('scanner'),
-                                        },
-                                        {
-                                            id: 'analyzer',
-                                            label: 'Analyzer',
-                                            icon: <TrackAnalyzerIcon />,
-                                            onClick: () => setMoreOptionsContent('analyzer'),
-                                        },
-                                        {
-                                            id: 'calculator',
-                                            label: 'Calculator',
-                                            icon: <TrackCalculatorIcon />,
-                                            onClick: () => setMoreOptionsContent('calculator'),
-                                        },
-                                        {
-                                            id: 'copytrading',
-                                            label: 'Copy Trading',
-                                            icon: <CopyTradingIcon />,
-                                            onClick: () => setMoreOptionsContent('copytrading'),
-                                        },
-                                        {
-                                            id: 'hacksanalysis',
-                                            label: 'HacksAnalysis',
-                                            icon: <HacksAnalysisIcon />,
-                                            onClick: () => setMoreOptionsContent('hacksanalysis'),
-                                        },
-                                    ]}
-                                />
+                                <>
+                                    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                                        <circle cx='12' cy='5' r='2' fill='currentColor' />
+                                        <circle cx='12' cy='12' r='2' fill='currentColor' />
+                                        <circle cx='12' cy='19' r='2' fill='currentColor' />
+                                    </svg>
+                                    <Localize i18n_default_text='More Options' />
+                                </>
                             }
                             id='id-more-options'
                         >
-                            {/* Render content based on selection */}
-                            {moreOptionsContent === 'scanner' && <SignalsScanner />}
-                            {moreOptionsContent === 'analyzer' && <MarketAnalyzer />}
-                            {moreOptionsContent === 'calculator' && <TradingCalculator />}
-                            {moreOptionsContent === 'copytrading' && (
-                                <div
-                                    style={{
-                                        width: '100%',
-                                        height: 'calc(100vh - 120px)',
-                                        minHeight: 'calc(100vh - 120px)',
-                                        overflow: 'hidden',
-                                        background: '#fff',
-                                    }}
-                                >
-                                    <iframe
-                                        src='/ai/copy-trading.html'
-                                        title='Copy Trading - Follow Expert Traders'
+                            {/* More Options Selection Interface */}
+                            <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+                                <h2 style={{ marginBottom: '2rem', color: '#333', fontSize: '2rem' }}>Select a Tool</h2>
+                                <div style={{ 
+                                    display: 'grid', 
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                                    gap: '1.5rem',
+                                    marginBottom: '2rem'
+                                }}>
+                                    <button
+                                        onClick={() => setMoreOptionsContent('scanner')}
                                         style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            border: 'none',
-                                            display: 'block',
+                                            padding: '1.5rem',
+                                            background: moreOptionsContent === 'scanner' ? 'linear-gradient(135deg, #00BFFF 0%, #0080FF 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #0f1419 100%)',
+                                            border: '2px solid',
+                                            borderColor: moreOptionsContent === 'scanner' ? '#00BFFF' : 'rgba(100, 100, 100, 0.3)',
+                                            borderRadius: '12px',
+                                            color: '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
                                         }}
-                                        allow='clipboard-write'
-                                        sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
-                                    />
-                                </div>
-                            )}
-                            {moreOptionsContent === 'hacksanalysis' && (
-                                <div
-                                    style={{
-                                        width: '100%',
-                                        height: 'calc(100vh - 120px)',
-                                        minHeight: 'calc(100vh - 120px)',
-                                        overflow: 'hidden',
-                                        background: '#fff',
-                                    }}
-                                >
-                                    <iframe
-                                        src='/www.osamtradinghub.com/alltools-ten.vercel.app/index.html'
-                                        title='HacksAnalysis - Advanced Trading Tools'
+                                    >
+                                        <TrackSignalsIcon />
+                                        <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>Scanner</span>
+                                    </button>
+
+                                    <button
+                                        onClick={() => setMoreOptionsContent('analyzer')}
                                         style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            border: 'none',
-                                            display: 'block',
+                                            padding: '1.5rem',
+                                            background: moreOptionsContent === 'analyzer' ? 'linear-gradient(135deg, #00BFFF 0%, #0080FF 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #0f1419 100%)',
+                                            border: '2px solid',
+                                            borderColor: moreOptionsContent === 'analyzer' ? '#00BFFF' : 'rgba(100, 100, 100, 0.3)',
+                                            borderRadius: '12px',
+                                            color: '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
                                         }}
-                                        allow='clipboard-write'
-                                        sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
-                                    />
+                                    >
+                                        <TrackAnalyzerIcon />
+                                        <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>Analyzer</span>
+                                    </button>
+
+                                    <button
+                                        onClick={() => setMoreOptionsContent('calculator')}
+                                        style={{
+                                            padding: '1.5rem',
+                                            background: moreOptionsContent === 'calculator' ? 'linear-gradient(135deg, #00BFFF 0%, #0080FF 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #0f1419 100%)',
+                                            border: '2px solid',
+                                            borderColor: moreOptionsContent === 'calculator' ? '#00BFFF' : 'rgba(100, 100, 100, 0.3)',
+                                            borderRadius: '12px',
+                                            color: '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                        }}
+                                    >
+                                        <TrackCalculatorIcon />
+                                        <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>Calculator</span>
+                                    </button>
+
+                                    <button
+                                        onClick={() => setMoreOptionsContent('copytrading')}
+                                        style={{
+                                            padding: '1.5rem',
+                                            background: moreOptionsContent === 'copytrading' ? 'linear-gradient(135deg, #00BFFF 0%, #0080FF 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #0f1419 100%)',
+                                            border: '2px solid',
+                                            borderColor: moreOptionsContent === 'copytrading' ? '#00BFFF' : 'rgba(100, 100, 100, 0.3)',
+                                            borderRadius: '12px',
+                                            color: '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                        }}
+                                    >
+                                        <CopyTradingIcon />
+                                        <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>Copy Trading</span>
+                                    </button>
+
+                                    <button
+                                        onClick={() => setMoreOptionsContent('hacksanalysis')}
+                                        style={{
+                                            padding: '1.5rem',
+                                            background: moreOptionsContent === 'hacksanalysis' ? 'linear-gradient(135deg, #00BFFF 0%, #0080FF 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #0f1419 100%)',
+                                            border: '2px solid',
+                                            borderColor: moreOptionsContent === 'hacksanalysis' ? '#00BFFF' : 'rgba(100, 100, 100, 0.3)',
+                                            borderRadius: '12px',
+                                            color: '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                        }}
+                                    >
+                                        <HacksAnalysisIcon />
+                                        <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>HacksAnalysis</span>
+                                    </button>
                                 </div>
-                            )}
-                            {!moreOptionsContent && (
-                                <div style={{ padding: '2rem', textAlign: 'center', color: '#666' }}>
-                                    <h2>Select an option from the dropdown above</h2>
-                                    <p>Choose Scanner, Analyzer, Calculator, Copy Trading, or HacksAnalysis</p>
+
+                                {/* Render selected content */}
+                                <div style={{ marginTop: '2rem' }}>
+                                    {moreOptionsContent === 'scanner' && <SignalsScanner />}
+                                    {moreOptionsContent === 'analyzer' && <MarketAnalyzer />}
+                                    {moreOptionsContent === 'calculator' && <TradingCalculator />}
+                                    {moreOptionsContent === 'copytrading' && (
+                                        <div
+                                            style={{
+                                                width: '100%',
+                                                height: 'calc(100vh - 300px)',
+                                                minHeight: '500px',
+                                                overflow: 'hidden',
+                                                background: '#fff',
+                                                borderRadius: '12px',
+                                            }}
+                                        >
+                                            <iframe
+                                                src='/ai/copy-trading.html'
+                                                title='Copy Trading - Follow Expert Traders'
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    border: 'none',
+                                                    display: 'block',
+                                                }}
+                                                allow='clipboard-write'
+                                                sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
+                                            />
+                                        </div>
+                                    )}
+                                    {moreOptionsContent === 'hacksanalysis' && (
+                                        <div
+                                            style={{
+                                                width: '100%',
+                                                height: 'calc(100vh - 300px)',
+                                                minHeight: '500px',
+                                                overflow: 'hidden',
+                                                background: '#fff',
+                                                borderRadius: '12px',
+                                            }}
+                                        >
+                                            <iframe
+                                                src='/www.osamtradinghub.com/alltools-ten.vercel.app/index.html'
+                                                title='HacksAnalysis - Advanced Trading Tools'
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    border: 'none',
+                                                    display: 'block',
+                                                }}
+                                                allow='clipboard-write'
+                                                sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
+                                            />
+                                        </div>
+                                    )}
                                 </div>
-                            )}
+                            </div>
                         </div>
                         
                         {/* CHARTS TAB */}
