@@ -226,9 +226,9 @@
         align-items: center;
         gap: 0.75rem;
         padding: 1rem 1.5rem !important;
-        // Bull vs Bear gradient background
-        background: linear-gradient(135deg, #0a0e27 0%, #0f1419 50%, #140a14 100%);
-        border: 2px solid rgba(100, 100, 100, 0.3);
+        // Light blue gradient background
+        background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 50%, #90CAF9 100%);
+        border: 2px solid rgba(33, 150, 243, 0.3);
         border-radius: 0; // Remove rounded corners for sharp edges
         // Octagonal shape with sharp edges (8 sides)
         clip-path: polygon(
@@ -241,7 +241,7 @@
             0% 85%,      /* Bottom-left corner cut */
             0% 15%       /* Top-left corner cut */
         );
-        color: rgba(255, 255, 255, 0.85) !important;
+        color: rgba(13, 71, 161, 0.95) !important; // Dark blue text
         font-size: 11px;
         font-weight: 600;
         cursor: pointer;
@@ -249,9 +249,8 @@
         user-select: none;
         line-height: 1.2;
         box-shadow: 
-            0 2px 8px rgba(0, 0, 0, 0.3),
-            0 0 10px rgba(0, 191, 255, 0.05),
-            0 0 10px rgba(255, 68, 68, 0.05);
+            0 2px 8px rgba(33, 150, 243, 0.2),
+            0 0 10px rgba(33, 150, 243, 0.1);
         overflow: visible; // Changed to visible for clip-path
 
         // Energy glow effect base
@@ -265,8 +264,8 @@
             height: 0;
             background: radial-gradient(
                 circle, 
-                rgba(0, 191, 255, 0.2) 0%, 
-                rgba(255, 68, 68, 0.2) 50%,
+                rgba(33, 150, 243, 0.2) 0%, 
+                rgba(25, 118, 210, 0.2) 50%,
                 transparent 70%
             );
             border-radius: 50%;
@@ -277,28 +276,28 @@
         // Ensure all text is visible
         span,
         div {
-            color: rgba(255, 255, 255, 0.85) !important;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+            color: rgba(13, 71, 161, 0.95) !important; // Dark blue text
+            text-shadow: none;
         }
 
-        // Icon styling with bull/bear theme
+        // Icon styling - dark blue
         svg {
             width: 24px;
             height: 24px;
             transition: all 0.3s ease;
-            filter: drop-shadow(0 2px 4px rgba(0, 191, 255, 0.3));
-            color: #00BFFF !important;
+            filter: drop-shadow(0 1px 2px rgba(13, 71, 161, 0.2));
+            color: #0D47A1 !important; // Dark blue icons
         }
 
-        // Hover state - Bull energy (blue)
+        // Hover state - Darker blue
         &:hover:not(&--active) {
-            background: linear-gradient(135deg, #0a1a2e 0%, #0f1f2e 50%, #0a1520 100%);
-            border-color: rgba(0, 191, 255, 0.6);
-            color: #00BFFF !important;
+            background: linear-gradient(135deg, #BBDEFB 0%, #90CAF9 50%, #64B5F6 100%);
+            border-color: rgba(25, 118, 210, 0.6);
+            color: #0D47A1 !important;
             transform: translateY(-2px);
             box-shadow: 
-                0 6px 20px rgba(0, 191, 255, 0.3),
-                0 0 30px rgba(0, 191, 255, 0.2);
+                0 6px 20px rgba(33, 150, 243, 0.4),
+                0 0 30px rgba(33, 150, 243, 0.3);
 
             &:before {
                 width: 200%;
@@ -307,59 +306,45 @@
 
             span,
             div {
-                color: #00BFFF !important;
-                text-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+                color: #0D47A1 !important;
+                text-shadow: none;
             }
 
             svg {
                 transform: scale(1.1);
-                filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.5));
-                color: #00BFFF !important;
+                filter: drop-shadow(0 2px 4px rgba(13, 71, 161, 0.4));
+                color: #0D47A1 !important;
             }
         }
 
-        // Active state - Bull vs Bear power
+        // Active state - Bright blue
         &--active {
             background: linear-gradient(
                 135deg, 
-                rgba(0, 127, 255, 0.2) 0%, 
-                rgba(0, 191, 255, 0.15) 25%,
-                rgba(255, 68, 68, 0.15) 75%,
-                rgba(255, 68, 68, 0.2) 100%
+                #2196F3 0%, 
+                #1976D2 50%,
+                #1565C0 100%
             ) !important;
-            border: 2px solid transparent !important;
-            border-image: linear-gradient(
-                135deg,
-                #00BFFF 0%,
-                #0080FF 25%,
-                #FF4444 75%,
-                #CC0000 100%
-            ) 1 !important;
+            border: 2px solid #1976D2 !important;
             color: #FFFFFF !important;
             box-shadow:
-                0 8px 24px rgba(0, 191, 255, 0.3),
-                0 8px 24px rgba(255, 68, 68, 0.3),
-                0 0 40px rgba(0, 191, 255, 0.2),
-                0 0 40px rgba(255, 68, 68, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 8px 24px rgba(33, 150, 243, 0.5),
+                0 0 40px rgba(33, 150, 243, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
 
             span,
             div {
                 color: #FFFFFF !important;
-                text-shadow: 
-                    0 0 10px rgba(0, 191, 255, 0.5),
-                    0 0 10px rgba(255, 68, 68, 0.5);
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 font-weight: 700;
             }
 
             svg {
                 transform: scale(1.15);
-                filter: 
-                    drop-shadow(0 2px 6px rgba(0, 191, 255, 0.6))
-                    drop-shadow(0 2px 6px rgba(255, 68, 68, 0.6));
+                filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.4));
                 color: #FFFFFF !important;
-                animation: iconDualGlow 2s ease-in-out infinite;
+                animation: iconGlow 2s ease-in-out infinite;
             }
 
             // Active indicator - Energy line
@@ -372,10 +357,9 @@
                 height: 3px;
                 background: linear-gradient(
                     90deg, 
-                    #00BFFF 0%, 
-                    #0080FF 25%,
-                    #FF4444 75%,
-                    #CC0000 100%
+                    #42A5F5 0%, 
+                    #2196F3 50%,
+                    #1976D2 100%
                 );
                 border-radius: 2px 2px 0 0;
                 animation: energyLine 2s ease-in-out infinite;
@@ -390,11 +374,11 @@
                 height: 150%;
                 background: radial-gradient(
                     circle, 
-                    rgba(0, 191, 255, 0.15) 0%,
-                    rgba(255, 68, 68, 0.15) 50%,
+                    rgba(33, 150, 243, 0.2) 0%,
+                    rgba(25, 118, 210, 0.15) 50%,
                     transparent 70%
                 );
-                animation: dualEnergyPulse 3s ease-in-out infinite;
+                animation: energyPulse 3s ease-in-out infinite;
             }
         }
 
@@ -403,7 +387,6 @@
             transform: translateY(-1px);
         }
     }
-
     // Badge for notifications (bull/bear themed)
     .tab-badge {
         position: absolute;
@@ -494,36 +477,30 @@
 
 @keyframes energyLine {
     0%,
+@keyframes energyLine {
+    0%,
     100% {
         opacity: 0.6;
-        box-shadow: 
-            0 0 10px rgba(0, 191, 255, 0.5),
-            0 0 10px rgba(255, 68, 68, 0.5);
+        box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
     }
 
     50% {
         opacity: 1;
-        box-shadow: 
-            0 0 20px rgba(0, 191, 255, 0.9),
-            0 0 20px rgba(255, 68, 68, 0.9);
+        box-shadow: 0 0 20px rgba(33, 150, 243, 0.9);
     }
 }
 
-@keyframes iconDualGlow {
+@keyframes iconGlow {
     0%, 100% {
-        filter: 
-            drop-shadow(0 2px 6px rgba(0, 191, 255, 0.6))
-            drop-shadow(0 2px 6px rgba(255, 68, 68, 0.6));
+        filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.4));
     }
 
     50% {
-        filter: 
-            drop-shadow(0 4px 12px rgba(0, 191, 255, 0.9))
-            drop-shadow(0 4px 12px rgba(255, 68, 68, 0.9));
+        filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.6));
     }
 }
 
-@keyframes dualEnergyPulse {
+@keyframes energyPulse {
     0%, 100% {
         opacity: 0.3;
         transform: translate(-50%, -50%) scale(1);
