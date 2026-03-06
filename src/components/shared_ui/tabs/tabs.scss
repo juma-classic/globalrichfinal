@@ -166,7 +166,7 @@
 }
 
 // Enhanced Modern Navigation Tabs - Bull vs Bear Theme
-// PLENTY FX - Professional Theme for Navigation Tabs
+// Global Trades - Professional Theme for Navigation Tabs
 .dc-tabs--enhanced {
     background: linear-gradient(135deg, #0a0e27 0%, #0f1419 50%, #140a14 100%);
     box-shadow: 
@@ -229,7 +229,18 @@
         // Bull vs Bear gradient background
         background: linear-gradient(135deg, #0a0e27 0%, #0f1419 50%, #140a14 100%);
         border: 2px solid rgba(100, 100, 100, 0.3);
-        border-radius: 12px;
+        border-radius: 0; // Remove rounded corners for sharp edges
+        // Octagonal shape with sharp edges (8 sides)
+        clip-path: polygon(
+            15% 0%,      /* Top-left corner cut */
+            85% 0%,      /* Top-right corner start */
+            100% 15%,    /* Top-right corner cut */
+            100% 85%,    /* Bottom-right corner start */
+            85% 100%,    /* Bottom-right corner cut */
+            15% 100%,    /* Bottom-left corner start */
+            0% 85%,      /* Bottom-left corner cut */
+            0% 15%       /* Top-left corner cut */
+        );
         color: rgba(255, 255, 255, 0.85) !important;
         font-size: 11px;
         font-weight: 600;
@@ -241,7 +252,7 @@
             0 2px 8px rgba(0, 0, 0, 0.3),
             0 0 10px rgba(0, 191, 255, 0.05),
             0 0 10px rgba(255, 68, 68, 0.05);
-        overflow: hidden;
+        overflow: visible; // Changed to visible for clip-path
 
         // Energy glow effect base
         &:before {

@@ -1,4 +1,4 @@
-// PLENTY FX Loader - Premium Trading Theme
+// Global Trades Loader - Premium Trading Theme
 .zeus-loader {
     position: fixed;
     top: 0;
@@ -542,5 +542,80 @@
         &__tip-text {
             font-size: 0.85rem;
         }
+    }
+}
+
+// Globe Logo Animations
+.globe-logo {
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.5));
+    animation: globeFloat 3s ease-in-out infinite;
+}
+
+.globe-glow {
+    animation: globeGlowPulse 2s ease-in-out infinite;
+}
+
+.core-pulse {
+    animation: corePulse 1.5s ease-in-out infinite;
+}
+
+.orbit-1 {
+    animation: orbitRotate1 8s linear infinite;
+    transform-origin: 100px 100px;
+}
+
+.orbit-2 {
+    animation: orbitRotate2 6s linear infinite reverse;
+    transform-origin: 100px 100px;
+}
+
+@keyframes globeFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+@keyframes globeGlowPulse {
+    0%, 100% {
+        opacity: 0.3;
+        r: 70;
+    }
+    50% {
+        opacity: 0.6;
+        r: 75;
+    }
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        opacity: 0.8;
+        r: 8;
+    }
+    50% {
+        opacity: 1;
+        r: 10;
+    }
+}
+
+@keyframes orbitRotate1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbitRotate2 {
+    0% {
+        transform: rotate(60deg);
+    }
+    100% {
+        transform: rotate(420deg);
     }
 }
