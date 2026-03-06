@@ -53,16 +53,102 @@ const DashboardIcon = () => (
 
 const BotBuilderIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <rect x='7' y='4' width='10' height='7' rx='1' stroke='currentColor' strokeWidth='2' fill='none' />
-        <rect x='7' y='13' width='10' height='7' rx='1' stroke='currentColor' strokeWidth='2' fill='none' />
-        <circle cx='12' cy='7.5' r='1.5' fill='#ffd700' />
-        <circle cx='12' cy='16.5' r='1.5' fill='#ffd700' />
-        <path d='M12 11V13' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
-        <path d='M9 7.5H7M17 7.5H15M9 16.5H7M17 16.5H15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
-        <circle cx='5' cy='7.5' r='1' fill='#ffd700' />
-        <circle cx='19' cy='7.5' r='1' fill='#ffd700' />
-        <circle cx='5' cy='16.5' r='1' fill='#ffd700' />
-        <circle cx='19' cy='16.5' r='1' fill='#ffd700' />
+        {/* Main robot head/body */}
+        <rect x='8' y='6' width='8' height='9' rx='1.5' stroke='currentColor' strokeWidth='1.5' fill='none' opacity='0.9' />
+        
+        {/* Master builder helmet/crown */}
+        <path 
+            d='M7 6 L8 4 L10 3 L12 2.5 L14 3 L16 4 L17 6' 
+            stroke='#FFD700' 
+            strokeWidth='1.5' 
+            strokeLinecap='round' 
+            strokeLinejoin='round'
+            fill='none'
+        />
+        
+        {/* Central gear - large (animated) */}
+        <g className='bot-builder-gear-main'>
+            <circle cx='12' cy='10' r='2.5' stroke='currentColor' strokeWidth='1.2' fill='none' />
+            <circle cx='12' cy='10' r='1' fill='#FFD700' />
+            {/* Gear teeth */}
+            <line x1='12' y1='7.5' x2='12' y2='6.5' stroke='currentColor' strokeWidth='1' />
+            <line x1='12' y1='12.5' x2='12' y2='13.5' stroke='currentColor' strokeWidth='1' />
+            <line x1='14.5' y1='10' x2='15.5' y2='10' stroke='currentColor' strokeWidth='1' />
+            <line x1='9.5' y1='10' x2='8.5' y2='10' stroke='currentColor' strokeWidth='1' />
+            <line x1='13.8' y1='8.2' x2='14.5' y2='7.5' stroke='currentColor' strokeWidth='1' />
+            <line x1='10.2' y1='11.8' x2='9.5' y2='12.5' stroke='currentColor' strokeWidth='1' />
+            <line x1='13.8' y1='11.8' x2='14.5' y2='12.5' stroke='currentColor' strokeWidth='1' />
+            <line x1='10.2' y1='8.2' x2='9.5' y2='7.5' stroke='currentColor' strokeWidth='1' />
+        </g>
+        
+        {/* Small gear left (animated reverse) */}
+        <g className='bot-builder-gear-left'>
+            <circle cx='9' cy='13' r='1.2' stroke='currentColor' strokeWidth='0.8' fill='none' />
+            <circle cx='9' cy='13' r='0.4' fill='#FFD700' />
+            <line x1='9' y1='11.8' x2='9' y2='11.2' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='9' y1='14.2' x2='9' y2='14.8' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='10.2' y1='13' x2='10.8' y2='13' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='7.8' y1='13' x2='7.2' y2='13' stroke='currentColor' strokeWidth='0.6' />
+        </g>
+        
+        {/* Small gear right (animated reverse) */}
+        <g className='bot-builder-gear-right'>
+            <circle cx='15' cy='13' r='1.2' stroke='currentColor' strokeWidth='0.8' fill='none' />
+            <circle cx='15' cy='13' r='0.4' fill='#FFD700' />
+            <line x1='15' y1='11.8' x2='15' y2='11.2' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='15' y1='14.2' x2='15' y2='14.8' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='16.2' y1='13' x2='16.8' y2='13' stroke='currentColor' strokeWidth='0.6' />
+            <line x1='13.8' y1='13' x2='13.2' y2='13' stroke='currentColor' strokeWidth='0.6' />
+        </g>
+        
+        {/* Mechanical arms */}
+        <path d='M8 11 L5 13 L4 15' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+        <path d='M16 11 L19 13 L20 15' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+        
+        {/* Arm joints */}
+        <circle cx='5' cy='13' r='0.8' fill='#FFD700' />
+        <circle cx='19' cy='13' r='0.8' fill='#FFD700' />
+        
+        {/* Tool/wrench in left hand */}
+        <path d='M3 15 L4 16 L5 15' stroke='#FFD700' strokeWidth='1.2' strokeLinecap='round' strokeLinejoin='round' />
+        
+        {/* Hammer in right hand */}
+        <rect x='19' y='15' width='2' height='1' fill='#FFD700' />
+        <line x1='20' y1='16' x2='20' y2='18' stroke='currentColor' strokeWidth='1.2' />
+        
+        {/* Base/legs */}
+        <path d='M10 15 L9 18 L8 20' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' />
+        <path d='M14 15 L15 18 L16 20' stroke='currentColor' strokeWidth='1.5' strokeLinecap='round' />
+        
+        {/* Feet */}
+        <circle cx='8' cy='20' r='1' fill='#FFD700' />
+        <circle cx='16' cy='20' r='1' fill='#FFD700' />
+        
+        {/* Master builder badge */}
+        <circle cx='12' cy='5' r='1' fill='#FFD700' opacity='0.8' />
+        
+        <style>{`
+            @keyframes rotateGearMain {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            @keyframes rotateGearReverse {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(-360deg); }
+            }
+            .bot-builder-gear-main {
+                transform-origin: 12px 10px;
+                animation: rotateGearMain 4s linear infinite;
+            }
+            .bot-builder-gear-left {
+                transform-origin: 9px 13px;
+                animation: rotateGearReverse 3s linear infinite;
+            }
+            .bot-builder-gear-right {
+                transform-origin: 15px 13px;
+                animation: rotateGearReverse 3s linear infinite;
+            }
+        `}</style>
     </svg>
 );
 
