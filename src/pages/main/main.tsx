@@ -2115,9 +2115,99 @@ const AppWrapper = observer(() => {
                             label={
                                 <>
                                     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                        <circle cx='12' cy='5' r='2' fill='currentColor' />
-                                        <circle cx='12' cy='12' r='2' fill='currentColor' />
-                                        <circle cx='12' cy='19' r='2' fill='currentColor' />
+                                        {/* Large central gear */}
+                                        <g className='more-options-gear-center'>
+                                            <circle cx='12' cy='12' r='4' stroke='currentColor' strokeWidth='1.5' fill='none' />
+                                            <circle cx='12' cy='12' r='1.5' fill='#FFD700' />
+                                            {/* Gear teeth - 8 teeth */}
+                                            <line x1='12' y1='8' x2='12' y2='6.5' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='12' y1='16' x2='12' y2='17.5' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='16' y1='12' x2='17.5' y2='12' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='8' y1='12' x2='6.5' y2='12' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='14.8' y1='9.2' x2='16' y2='8' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='9.2' y1='14.8' x2='8' y2='16' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='14.8' y1='14.8' x2='16' y2='16' stroke='currentColor' strokeWidth='1.2' />
+                                            <line x1='9.2' y1='9.2' x2='8' y2='8' stroke='currentColor' strokeWidth='1.2' />
+                                        </g>
+                                        
+                                        {/* Top-right small gear */}
+                                        <g className='more-options-gear-top-right'>
+                                            <circle cx='18' cy='6' r='2.2' stroke='currentColor' strokeWidth='1' fill='none' />
+                                            <circle cx='18' cy='6' r='0.8' fill='#FFD700' />
+                                            <line x1='18' y1='3.8' x2='18' y2='3' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='18' y1='8.2' x2='18' y2='9' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='20.2' y1='6' x2='21' y2='6' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='15.8' y1='6' x2='15' y2='6' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='19.5' y1='4.5' x2='20.1' y2='3.9' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='16.5' y1='7.5' x2='15.9' y2='8.1' stroke='currentColor' strokeWidth='0.8' />
+                                        </g>
+                                        
+                                        {/* Bottom-left small gear */}
+                                        <g className='more-options-gear-bottom-left'>
+                                            <circle cx='6' cy='18' r='2.2' stroke='currentColor' strokeWidth='1' fill='none' />
+                                            <circle cx='6' cy='18' r='0.8' fill='#FFD700' />
+                                            <line x1='6' y1='15.8' x2='6' y2='15' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='6' y1='20.2' x2='6' y2='21' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='8.2' y1='18' x2='9' y2='18' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='3.8' y1='18' x2='3' y2='18' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='7.5' y1='16.5' x2='8.1' y2='15.9' stroke='currentColor' strokeWidth='0.8' />
+                                            <line x1='4.5' y1='19.5' x2='3.9' y2='20.1' stroke='currentColor' strokeWidth='0.8' />
+                                        </g>
+                                        
+                                        {/* Top-left tiny gear */}
+                                        <g className='more-options-gear-top-left'>
+                                            <circle cx='5' cy='5' r='1.5' stroke='currentColor' strokeWidth='0.8' fill='none' />
+                                            <circle cx='5' cy='5' r='0.5' fill='#FFD700' />
+                                            <line x1='5' y1='3.5' x2='5' y2='3' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='5' y1='6.5' x2='5' y2='7' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='6.5' y1='5' x2='7' y2='5' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='3.5' y1='5' x2='3' y2='5' stroke='currentColor' strokeWidth='0.6' />
+                                        </g>
+                                        
+                                        {/* Bottom-right tiny gear */}
+                                        <g className='more-options-gear-bottom-right'>
+                                            <circle cx='19' cy='19' r='1.5' stroke='currentColor' strokeWidth='0.8' fill='none' />
+                                            <circle cx='19' cy='19' r='0.5' fill='#FFD700' />
+                                            <line x1='19' y1='17.5' x2='19' y2='17' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='19' y1='20.5' x2='19' y2='21' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='20.5' y1='19' x2='21' y2='19' stroke='currentColor' strokeWidth='0.6' />
+                                            <line x1='17.5' y1='19' x2='17' y2='19' stroke='currentColor' strokeWidth='0.6' />
+                                        </g>
+                                        
+                                        {/* Connecting chains/belts */}
+                                        <path d='M14.5 10.5 L16.5 7.5' stroke='currentColor' strokeWidth='0.5' opacity='0.4' strokeDasharray='1,1' />
+                                        <path d='M9.5 13.5 L7.5 16.5' stroke='currentColor' strokeWidth='0.5' opacity='0.4' strokeDasharray='1,1' />
+                                        
+                                        <style>{`
+                                            @keyframes rotateClockwise {
+                                                from { transform: rotate(0deg); }
+                                                to { transform: rotate(360deg); }
+                                            }
+                                            @keyframes rotateCounterClockwise {
+                                                from { transform: rotate(0deg); }
+                                                to { transform: rotate(-360deg); }
+                                            }
+                                            .more-options-gear-center {
+                                                transform-origin: 12px 12px;
+                                                animation: rotateClockwise 6s linear infinite;
+                                            }
+                                            .more-options-gear-top-right {
+                                                transform-origin: 18px 6px;
+                                                animation: rotateCounterClockwise 4s linear infinite;
+                                            }
+                                            .more-options-gear-bottom-left {
+                                                transform-origin: 6px 18px;
+                                                animation: rotateCounterClockwise 4s linear infinite;
+                                            }
+                                            .more-options-gear-top-left {
+                                                transform-origin: 5px 5px;
+                                                animation: rotateClockwise 3s linear infinite;
+                                            }
+                                            .more-options-gear-bottom-right {
+                                                transform-origin: 19px 19px;
+                                                animation: rotateClockwise 3s linear infinite;
+                                            }
+                                        `}</style>
                                     </svg>
                                     <Localize i18n_default_text='More Options' />
                                 </>
