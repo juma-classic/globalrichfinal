@@ -242,7 +242,7 @@
             0% 15%       /* Top-left corner cut */
         );
         color: rgba(255, 255, 255, 0.95) !important; // White text
-        font-size: 11px;
+        font-size: 14.3px; // Increased by 30% (from 11px)
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -282,8 +282,8 @@
 
         // Icon styling - white
         svg {
-            width: 24px;
-            height: 24px;
+            width: 28.8px; // Increased by 20% (from 24px)
+            height: 28.8px; // Increased by 20% (from 24px)
             transition: all 0.3s ease;
             filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
             color: #FFFFFF !important; // White icons
@@ -417,12 +417,12 @@
 
         .dc-tabs__item {
             padding: 0.75rem 1rem !important;
-            font-size: 10px;
+            font-size: 13px; // Increased by 30% (from 10px)
             gap: 0.5rem;
 
             svg {
-                width: 20px;
-                height: 20px;
+                width: 24px; // Increased by 20% (from 20px)
+                height: 24px; // Increased by 20% (from 20px)
             }
         }
     }
@@ -441,7 +441,7 @@
 
         .dc-tabs__item {
             padding: 0.6rem 0.8rem !important;
-            font-size: 9px;
+            font-size: 11.7px; // Increased by 30% (from 9px)
             flex-shrink: 0;
 
             span:not(.tab-badge) {
@@ -449,8 +449,8 @@
             }
 
             svg {
-                width: 22px;
-                height: 22px;
+                width: 26.4px; // Increased by 20% (from 22px)
+                height: 26.4px; // Increased by 20% (from 22px)
             }
         }
     }
