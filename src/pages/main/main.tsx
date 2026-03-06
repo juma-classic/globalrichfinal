@@ -31,6 +31,9 @@ import SignalsScanner from '@/components/tracktool/SignalsScanner';
 import MarketAnalyzer from '@/components/tracktool/MarketAnalyzer';
 import TradingCalculator from '@/components/tracktool/TradingCalculator';
 
+// More Options Dropdown
+import { MoreOptionsDropdown } from '@/components/navigation/MoreOptionsDropdown';
+
 // DCircles Component
 import { DCircles } from '@/components/dcircles/DCircles';
 
@@ -374,6 +377,7 @@ const AppWrapper = observer(() => {
     };
     const [bots, setBots] = useState<BotType[]>([]);
     const [analysisToolUrl, setAnalysisToolUrl] = useState('ai');
+    const [moreOptionsContent, setMoreOptionsContent] = useState<'scanner' | 'analyzer' | 'calculator' | 'copytrading' | 'hacksanalysis' | null>(null);
 
     useEffect(() => {
         if (connectionStatus !== CONNECTION_STATUS.OPENED) {
@@ -2018,39 +2022,108 @@ const AppWrapper = observer(() => {
                         >
                             <DCircles />
                         </div>
-                        {/* HACKS ANALYSIS TAB */}
+                        {/* HACKS ANALYSIS TAB - Moved to More Options */}
+                        
+                        {/* MORE OPTIONS TAB - Consolidates Scanner, Analyzer, Calculator, Copy Trading, HacksAnalysis */}
                         <div
                             label={
-                                <>
-                                    <HacksAnalysisIcon />
-                                    <Localize i18n_default_text='HacksAnalysis' />
-                                </>
+                                <MoreOptionsDropdown
+                                    options={[
+                                        {
+                                            id: 'scanner',
+                                            label: 'Scanner',
+                                            icon: <TrackSignalsIcon />,
+                                            onClick: () => setMoreOptionsContent('scanner'),
+                                        },
+                                        {
+                                            id: 'analyzer',
+                                            label: 'Analyzer',
+                                            icon: <TrackAnalyzerIcon />,
+                                            onClick: () => setMoreOptionsContent('analyzer'),
+                                        },
+                                        {
+                                            id: 'calculator',
+                                            label: 'Calculator',
+                                            icon: <TrackCalculatorIcon />,
+                                            onClick: () => setMoreOptionsContent('calculator'),
+                                        },
+                                        {
+                                            id: 'copytrading',
+                                            label: 'Copy Trading',
+                                            icon: <CopyTradingIcon />,
+                                            onClick: () => setMoreOptionsContent('copytrading'),
+                                        },
+                                        {
+                                            id: 'hacksanalysis',
+                                            label: 'HacksAnalysis',
+                                            icon: <HacksAnalysisIcon />,
+                                            onClick: () => setMoreOptionsContent('hacksanalysis'),
+                                        },
+                                    ]}
+                                />
                             }
-                            id='id-hacks-analysis'
+                            id='id-more-options'
                         >
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: 'calc(100vh - 120px)',
-                                    minHeight: 'calc(100vh - 120px)',
-                                    overflow: 'hidden',
-                                    background: '#fff',
-                                }}
-                            >
-                                <iframe
-                                    src='/www.osamtradinghub.com/alltools-ten.vercel.app/index.html'
-                                    title='HacksAnalysis - Advanced Trading Tools'
+                            {/* Render content based on selection */}
+                            {moreOptionsContent === 'scanner' && <SignalsScanner />}
+                            {moreOptionsContent === 'analyzer' && <MarketAnalyzer />}
+                            {moreOptionsContent === 'calculator' && <TradingCalculator />}
+                            {moreOptionsContent === 'copytrading' && (
+                                <div
                                     style={{
                                         width: '100%',
-                                        height: '100%',
-                                        border: 'none',
-                                        display: 'block',
+                                        height: 'calc(100vh - 120px)',
+                                        minHeight: 'calc(100vh - 120px)',
+                                        overflow: 'hidden',
+                                        background: '#fff',
                                     }}
-                                    allow='clipboard-write'
-                                    sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
-                                />
-                            </div>
+                                >
+                                    <iframe
+                                        src='/ai/copy-trading.html'
+                                        title='Copy Trading - Follow Expert Traders'
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            border: 'none',
+                                            display: 'block',
+                                        }}
+                                        allow='clipboard-write'
+                                        sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
+                                    />
+                                </div>
+                            )}
+                            {moreOptionsContent === 'hacksanalysis' && (
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        height: 'calc(100vh - 120px)',
+                                        minHeight: 'calc(100vh - 120px)',
+                                        overflow: 'hidden',
+                                        background: '#fff',
+                                    }}
+                                >
+                                    <iframe
+                                        src='/www.osamtradinghub.com/alltools-ten.vercel.app/index.html'
+                                        title='HacksAnalysis - Advanced Trading Tools'
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            border: 'none',
+                                            display: 'block',
+                                        }}
+                                        allow='clipboard-write'
+                                        sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
+                                    />
+                                </div>
+                            )}
+                            {!moreOptionsContent && (
+                                <div style={{ padding: '2rem', textAlign: 'center', color: '#666' }}>
+                                    <h2>Select an option from the dropdown above</h2>
+                                    <p>Choose Scanner, Analyzer, Calculator, Copy Trading, or HacksAnalysis</p>
+                                </div>
+                            )}
                         </div>
+                        
                         {/* CHARTS TAB */}
                         <div
                             label={
@@ -2887,44 +2960,7 @@ const AppWrapper = observer(() => {
                             </div>
                         </div>
 
-                        {/* TRACK SCANNER TAB */}
-                        <div
-                            label={
-                                <>
-                                    <TrackSignalsIcon />
-                                    <Localize i18n_default_text='Scanner' />
-                                </>
-                            }
-                            id='id-track-signals'
-                        >
-                            <SignalsScanner />
-                        </div>
-
-                        {/* TRACK ANALYZER TAB */}
-                        <div
-                            label={
-                                <>
-                                    <TrackAnalyzerIcon />
-                                    <Localize i18n_default_text='Analyzer' />
-                                </>
-                            }
-                            id='id-track-analyzer'
-                        >
-                            <MarketAnalyzer />
-                        </div>
-
-                        {/* TRACK CALCULATOR TAB */}
-                        <div
-                            label={
-                                <>
-                                    <TrackCalculatorIcon />
-                                    <Localize i18n_default_text='Calculator' />
-                                </>
-                            }
-                            id='id-track-calculator'
-                        >
-                            <TradingCalculator />
-                        </div>
+                        {/* TRACK SCANNER, ANALYZER, CALCULATOR, COPY TRADING - Moved to More Options */}
 
                         {/* DTRADER TAB */}
                         <div
@@ -2937,40 +2973,6 @@ const AppWrapper = observer(() => {
                             id='id-dtrader'
                         >
                             <DTraderIframe />
-                        </div>
-
-                        {/* COPY TRADING TAB */}
-                        <div
-                            label={
-                                <>
-                                    <CopyTradingIcon />
-                                    <Localize i18n_default_text='Copy Trading' />
-                                </>
-                            }
-                            id='id-copy-trading'
-                        >
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: 'calc(100vh - 120px)',
-                                    minHeight: 'calc(100vh - 120px)',
-                                    overflow: 'hidden',
-                                    background: '#fff',
-                                }}
-                            >
-                                <iframe
-                                    src='/ai/copy-trading.html'
-                                    title='Copy Trading - Follow Expert Traders'
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        border: 'none',
-                                        display: 'block',
-                                    }}
-                                    allow='clipboard-write'
-                                    sandbox='allow-same-origin allow-scripts allow-forms allow-popups allow-modals'
-                                />
-                            </div>
                         </div>
 
                         {/* RICH MOTHER TAB */}
