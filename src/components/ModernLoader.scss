@@ -5,94 +5,30 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    background: #ffffff; // Clean white background
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10000;
     overflow: hidden;
 
-    // Trading animation canvas
+    // Trading animation canvas - HIDDEN
     &__matrix-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.9;
-        z-index: 1;
+        display: none; // Remove animated canvas
     }
 
-    // Market energy flash effect
+    // Market energy flash effect - HIDDEN
     &__lightning-flash {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-            circle at 50% 50%,
-            rgba(0, 255, 136, 0.15) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 30% 70%,
-            rgba(255, 215, 0, 0.1) 0%,
-            transparent 40%
-        );
-        opacity: 0;
-        pointer-events: none;
-        z-index: 5;
-        transition: opacity 0.1s;
-
-        &.active {
-            opacity: 1;
-            animation: marketFlash 0.2s ease-out;
-        }
+        display: none; // Remove flash effects
     }
 
-    // Floating gradient orbs
+    // Floating gradient orbs - HIDDEN
     &__storm-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
+        display: none; // Remove animated background
     }
 
     &__cloud {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        animation: orbFloat 25s infinite ease-in-out;
-
-        &--1 {
-            width: 500px;
-            height: 300px;
-            top: 5%;
-            left: -15%;
-            background: radial-gradient(ellipse, rgba(0, 255, 136, 0.2) 0%, transparent 70%);
-            animation-delay: 0s;
-        }
-
-        &--2 {
-            width: 600px;
-            height: 350px;
-            top: 30%;
-            right: -20%;
-            background: radial-gradient(ellipse, rgba(255, 215, 0, 0.25) 0%, transparent 70%);
-            animation-delay: 8s;
-        }
-
-        &--3 {
-            width: 550px;
-            height: 320px;
-            bottom: 10%;
-            left: 15%;
-            background: radial-gradient(ellipse, rgba(0, 191, 255, 0.18) 0%, transparent 70%);
-            animation-delay: 16s;
-        }
+        display: none; // Remove all cloud animations
     }
 
     // Main content container
@@ -226,30 +162,30 @@
     }
 
     &__brand-zeus {
-        color: #FFD700;
-        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.5);
+        color: #0080FF; // Blue for white background
+        text-shadow: 0 2px 4px rgba(0, 128, 255, 0.3);
         animation: textGlow 2s infinite alternate;
     }
 
     &__brand-trading {
-        color: #4169E1;
+        color: #FF4444; // Red for white background
         font-size: 2rem;
-        text-shadow: 0 0 15px rgba(65, 105, 225, 0.8);
+        text-shadow: 0 2px 4px rgba(255, 68, 68, 0.3);
     }
 
     &__brand-hub {
         color: #00BFFF;
         font-size: 2rem;
-        text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+        text-shadow: 0 2px 4px rgba(0, 191, 255, 0.3);
     }
 
     &__tagline {
-        color: #FFD700;
+        color: #333333; // Dark gray for white background
         font-size: 1.2rem;
         font-weight: 600;
         text-align: center;
         margin: 0;
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        text-shadow: none;
         animation: taglinePulse 3s infinite ease-in-out;
     }
 
@@ -259,12 +195,12 @@
     }
 
     &__text {
-        color: #ffffff;
+        color: #666666; // Medium gray for white background
         font-size: 1.1rem;
         font-weight: 500;
         text-align: center;
         min-height: 1.5rem;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        text-shadow: none;
     }
 
     // Progress bar
@@ -277,29 +213,29 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.5rem;
-        color: #FFD700;
+        color: #333333; // Dark gray for white background
         font-size: 0.9rem;
         font-weight: 600;
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        text-shadow: none;
     }
 
     &__progress-bar {
         width: 100%;
         height: 8px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1); // Light gray for white background
         border-radius: 10px;
         overflow: hidden;
         position: relative;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     &__progress-fill {
         height: 100%;
-        background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FF6B00 100%);
+        background: linear-gradient(90deg, #00BFFF 0%, #0080FF 50%, #FF4444 100%); // Bull vs Bear gradient
         border-radius: 10px;
         position: relative;
         transition: width 0.3s ease-out;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
         animation: progressGlow 1.5s infinite alternate;
     }
 
@@ -547,8 +483,8 @@
 
 // Globe Logo Animations
 .globe-logo {
-    width: 150px;
-    height: 150px;
+    width: 240px; // Increased from 150px (60% larger)
+    height: 240px; // Increased from 150px (60% larger)
     filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.5));
     animation: globeFloat 3s ease-in-out infinite;
 }
