@@ -36,7 +36,7 @@ class DerivConnectionPoolService {
         },
         // Temporarily disabled other App IDs to resolve connection timeouts
         // {
-        //     appId: '119552', // Analysis tools
+        //     appId: '117918', // Analysis tools
         //     type: ConnectionType.ANALYSIS,
         //     description: 'Analysis & Chart Tools',
         //     features: ['Live Tick Patterns', 'Streak Analysis', 'Chart Analysis', 'Market Data'],
