@@ -581,8 +581,6 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                'States Digit Switcher.xml',
-                'Profit Pilot.xml',
                 'PATEL (with Entry).xml',
                 'dollar_flipper.xml',
                 'UnderoverAutoswitch.xml',
@@ -639,6 +637,7 @@ const AppWrapper = observer(() => {
 
             if (premiumStatus) {
                 const premiumBotFiles = [
+                    'Auto Rich.xml',
                     'AlphaEdge.xml',
                     'Premium Zeus Master.xml',
                     'Premium CFX Elite.xml',
