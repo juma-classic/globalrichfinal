@@ -3129,17 +3129,12 @@ const AppWrapper = observer(() => {
                             id='id-free-bots'
                         >
                             <div
-                                className='free-bots'
+                                className='free-bots-container'
                                 style={{
                                     background: '#ffffff',
-                                    position: 'fixed',
-                                    top: '120px',
-                                    left: 0,
-                                    right: 0,
-                                    bottom: '100px',
                                     width: '100%',
+                                    height: '100%',
                                     padding: '2rem',
-                                    margin: 0,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     overflowY: 'auto',
@@ -3161,22 +3156,28 @@ const AppWrapper = observer(() => {
                                 >
                                     🤖 Free Trading Bots
                                 </h2>
-                                <ul
-                                    className='free-bots__list'
+                                <div
+                                    className='free-bots-scroll-container'
                                     style={{
-                                        listStyle: 'none',
-                                        padding: 0,
-                                        margin: 0,
-                                        display: 'grid',
-                                        gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-                                        gap: '1.5rem',
-                                        width: '100%',
-                                        gridAutoRows: 'min-content',
                                         flex: 1,
                                         overflowY: 'auto',
-                                        paddingBottom: '8rem',
+                                        overflowX: 'hidden',
                                     }}
                                 >
+                                    <ul
+                                        className='free-bots__list'
+                                        style={{
+                                            listStyle: 'none',
+                                            padding: 0,
+                                            margin: 0,
+                                            display: 'grid',
+                                            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                                            gap: '1.5rem',
+                                            width: '100%',
+                                            gridAutoRows: 'min-content',
+                                            paddingBottom: '2rem',
+                                        }}
+                                    >
                                     {bots.length === 0 ? (
                                         <li
                                             style={{
@@ -3312,50 +3313,20 @@ const AppWrapper = observer(() => {
                                         ))
                                     )}
                                 </ul>
-                                <style>
-                                    {`
-                                        /* Responsive adjustments */
-                                        @media (max-width: 768px) {
-                                            .free-bots__list {
-                                                grid-template-columns: 1fr !important;
-                                                padding: 1rem !important;
-                                            }
-                                            .free-bot-item h3 {
-                                                font-size: 0.95rem !important;
-                                                white-space: normal !important;
-                                            }
-                                            .free-bot-item p {
-                                                font-size: 0.8rem !important;
-                                            }
-                                        }
 
-                                        /* Extra small screens */
-                                        @media (max-width: 480px) {
-                                            .free-bots__list {
-                                                padding: 0.75rem !important;
-                                                gap: 0.5rem !important;
-                                            }
-                                            .free-bot-item {
-                                                padding: 0.75rem !important;
-                                            }
-                                        }
-                                    `}
-                                </style>
-                            </div>
-
-                            {/* PREMIUM BOTS SECTION - Only visible for whitelisted users */}
-                            {isPremium && (
-                                <div
-                                    className='premium-bots'
-                                    style={{
-                                        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-                                        marginTop: '2rem',
-                                        padding: '2rem',
-                                        borderRadius: '16px',
-                                        boxShadow: '0 8px 32px rgba(255, 215, 0, 0.2)',
-                                        border: '2px solid #ffd700',
-                                    }}
-                                >
+                                {/* PREMIUM BOTS SECTION - Only visible for whitelisted users */}
+                                {isPremium && (
+                                    <div
+                                        className='premium-bots'
+                                        style={{
+                                            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+                                            marginTop: '2rem',
+                                            padding: '2rem',
+                                            borderRadius: '16px',
+                                            boxShadow: '0 8px 32px rgba(255, 215, 0, 0.2)',
+                                            border: '2px solid #ffd700',
+                                        }}
+                                    >
                                     <div
                                         style={{
                                             display: 'flex',
@@ -3590,7 +3561,38 @@ const AppWrapper = observer(() => {
                                     </style>
                                 </div>
                             )}
-                        </div>
+
+                            <style>
+                                {`
+                                    /* Responsive adjustments */
+                                    @media (max-width: 768px) {
+                                        .free-bots__list {
+                                            grid-template-columns: 1fr !important;
+                                            padding: 1rem !important;
+                                        }
+                                        .free-bot-item h3 {
+                                            font-size: 0.95rem !important;
+                                            white-space: normal !important;
+                                        }
+                                        .free-bot-item p {
+                                            font-size: 0.8rem !important;
+                                        }
+                                    }
+
+                                    /* Extra small screens */
+                                    @media (max-width: 480px) {
+                                        .free-bots__list {
+                                            padding: 0.75rem !important;
+                                            gap: 0.5rem !important;
+                                        }
+                                        .free-bot-item {
+                                            padding: 0.75rem !important;
+                                        }
+                                    }
+                                `}
+                            </style>
+                                </div>
+                            </div>
 
                         {/* TRACK SCANNER, ANALYZER, CALCULATOR, COPY TRADING - Moved to More Options */}
 
