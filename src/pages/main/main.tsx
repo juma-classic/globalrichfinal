@@ -602,6 +602,8 @@ const AppWrapper = observer(() => {
                 'Speed Auto Bot🦷.xml',
                 'Under 8 promax by Zeus.xml',
                 'Under Killer 2026.xml',
+                'Scaling Over Bot.xml',
+                'Scaling Under Bot.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
@@ -637,6 +639,7 @@ const AppWrapper = observer(() => {
 
             if (premiumStatus) {
                 const premiumBotFiles = [
+                    'AlphaEdge.xml',
                     'Premium Zeus Master.xml',
                     'Premium CFX Elite.xml',
                     'Premium Martingale Pro.xml',
