@@ -229,18 +229,7 @@
         // Dark blue gradient background
         background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
         border: 2px solid rgba(25, 118, 210, 0.5);
-        border-radius: 0; // Remove rounded corners for sharp edges
-        // Octagonal shape with sharp edges (8 sides)
-        clip-path: polygon(
-            15% 0%,      /* Top-left corner cut */
-            85% 0%,      /* Top-right corner start */
-            100% 15%,    /* Top-right corner cut */
-            100% 85%,    /* Bottom-right corner start */
-            85% 100%,    /* Bottom-right corner cut */
-            15% 100%,    /* Bottom-left corner start */
-            0% 85%,      /* Bottom-left corner cut */
-            0% 15%       /* Top-left corner cut */
-        );
+        border-radius: 4px; // Simple rounded rectangle
         color: rgba(255, 255, 255, 0.95) !important; // White text
         font-size: 14.3px; // Increased by 30% (from 11px)
         font-weight: 600;
@@ -251,7 +240,7 @@
         box-shadow: 
             0 2px 8px rgba(13, 71, 161, 0.3),
             0 0 10px rgba(33, 150, 243, 0.2);
-        overflow: visible; // Changed to visible for clip-path
+        overflow: hidden;
 
         // Energy glow effect base
         &:before {
