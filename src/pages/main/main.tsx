@@ -300,6 +300,32 @@ const FreeBotsIcon = () => (
     </svg>
 );
 
+const PremiumBotsIcon = () => (
+    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        {/* Crown base */}
+        <path
+            d='M4 20h16v-2H4v2z'
+            fill='#ffd700'
+        />
+        {/* Crown body */}
+        <path
+            d='M20 8l-4 4-4-6-4 6-4-4v8h16V8z'
+            fill='#ffd700'
+            opacity='0.9'
+        />
+        {/* Crown points */}
+        <circle cx='4' cy='8' r='1.5' fill='#ffd700' />
+        <circle cx='12' cy='2' r='1.5' fill='#ffd700' />
+        <circle cx='20' cy='8' r='1.5' fill='#ffd700' />
+        <circle cx='8' cy='12' r='1.5' fill='#ffd700' />
+        <circle cx='16' cy='12' r='1.5' fill='#ffd700' />
+        {/* Jewels */}
+        <circle cx='12' cy='14' r='1' fill='#ff0000' opacity='0.8' />
+        <circle cx='9' cy='16' r='0.8' fill='#00ff00' opacity='0.8' />
+        <circle cx='15' cy='16' r='0.8' fill='#0000ff' opacity='0.8' />
+    </svg>
+);
+
 const RichMotherIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         {/* Diamond shape */}
@@ -3313,15 +3339,313 @@ const AppWrapper = observer(() => {
                                         ))
                                     )}
                                 </ul>
+                            <style>
+                                {`
+                                    /* Responsive adjustments */
+                                    @media (max-width: 768px) {
+                                        .free-bots__list {
+                                            grid-template-columns: 1fr !important;
+                                            padding: 1rem !important;
+                                        }
+                                        .free-bot-item h3 {
+                                            font-size: 0.95rem !important;
+                                            white-space: normal !important;
+                                        }
+                                        .free-bot-item p {
+                                            font-size: 0.8rem !important;
+                                        }
+                                    }
 
-                                {/* PREMIUM BOTS SECTION - Only visible for whitelisted users */}
-                                {isPremium && (
+                                    /* Extra small screens */
+                                    @media (max-width: 480px) {
+                                        .free-bots__list {
+                                            padding: 0.75rem !important;
+                                            gap: 0.5rem !important;
+                                        }
+                                        .free-bot-item {
+                                            padding: 0.75rem !important;
+                                        }
+                                    }
+                                `}
+                            </style>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* PREMIUM BOTS TAB - Only visible for whitelisted users */}
+                        {isPremium && (
+                            <div
+                                label={
+                                    <>
+                                        <PremiumBotsIcon />
+                                        <Localize i18n_default_text='Premium Bots' />
+                                        <span className='tab-badge' style={{ background: '#ffd700', color: '#1a1a2e' }}>👑</span>
+                                    </>
+                                }
+                                id='id-premium-bots'
+                            >
+                                <div
+                                    className='premium-bots-container'
+                                    style={{
+                                        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+                                        width: '100%',
+                                        height: '100%',
+                                        padding: '2rem',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        overflowY: 'auto',
+                                        overflowX: 'hidden',
+                                        boxShadow: 'inset 0 0 20px rgba(255, 215, 0, 0.1)',
+                                    }}
+                                >
                                     <div
-                                        className='premium-bots'
                                         style={{
-                                            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-                                            marginTop: '2rem',
-                                            padding: '2rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '1rem',
+                                            marginBottom: '1.5rem',
+                                            paddingBottom: '1rem',
+                                            borderBottom: '3px solid #ffd700',
+                                            flexShrink: 0,
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '2rem' }}>👑</span>
+                                        <h2
+                                            style={{
+                                                color: '#ffd700',
+                                                fontSize: '2rem',
+                                                fontWeight: '700',
+                                                margin: 0,
+                                                textShadow: '0 2px 8px rgba(255, 215, 0, 0.3)',
+                                            }}
+                                        >
+                                            Premium Trading Bots
+                                        </h2>
+                                        <span style={{ fontSize: '2rem' }}>👑</span>
+                                    </div>
+                                    <p
+                                        style={{
+                                            textAlign: 'center',
+                                            color: '#ffd700',
+                                            fontSize: '0.95rem',
+                                            marginBottom: '1.5rem',
+                                            opacity: 0.9,
+                                            flexShrink: 0,
+                                        }}
+                                    >
+                                        Exclusive access for premium members
+                                    </p>
+                                    <div
+                                        className='premium-bots-scroll-container'
+                                        style={{
+                                            flex: 1,
+                                            overflowY: 'auto',
+                                            overflowX: 'hidden',
+                                        }}
+                                    >
+                                        <ul
+                                            className='premium-bots__list'
+                                            style={{
+                                                listStyle: 'none',
+                                                padding: 0,
+                                                margin: 0,
+                                                display: 'grid',
+                                                gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                                                gap: '1.5rem',
+                                                width: '100%',
+                                                gridAutoRows: 'min-content',
+                                                paddingBottom: '2rem',
+                                            }}
+                                        >
+                                        {premiumBots.length === 0 ? (
+                                            <li
+                                                style={{
+                                                    textAlign: 'center',
+                                                    padding: '3rem',
+                                                    color: '#ffd700',
+                                                    fontSize: '1.1rem',
+                                                    gridColumn: '1 / -1',
+                                                }}
+                                            >
+                                                <Localize i18n_default_text='No premium bots available.' />
+                                            </li>
+                                        ) : (
+                                            premiumBots.map((bot, index) => (
+                                                <li
+                                                    key={index}
+                                                    className='premium-bot-item'
+                                                    style={{
+                                                        background: 'linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%)',
+                                                        borderRadius: '16px',
+                                                        padding: '1.5rem',
+                                                        display: 'flex',
+                                                        flexDirection: 'column',
+                                                        gap: '1rem',
+                                                        boxShadow: '0 4px 16px rgba(255, 215, 0, 0.15)',
+                                                        transition: 'all 0.3s ease',
+                                                        cursor: 'pointer',
+                                                        border: '2px solid #ffd700',
+                                                        position: 'relative',
+                                                        overflow: 'hidden',
+                                                    }}
+                                                    onMouseEnter={e => {
+                                                        e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+                                                        e.currentTarget.style.boxShadow =
+                                                            '0 12px 32px rgba(255, 215, 0, 0.4)';
+                                                        e.currentTarget.style.borderColor = '#ffed4e';
+                                                    }}
+                                                    onMouseLeave={e => {
+                                                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                                        e.currentTarget.style.boxShadow =
+                                                            '0 4px 16px rgba(255, 215, 0, 0.15)';
+                                                        e.currentTarget.style.borderColor = '#ffd700';
+                                                    }}
+                                                    onClick={() => handleBotClick(bot)}
+                                                >
+                                                    <div
+                                                        style={{
+                                                            position: 'absolute',
+                                                            top: '10px',
+                                                            right: '10px',
+                                                            background: '#ffd700',
+                                                            color: '#1a1a2e',
+                                                            padding: '0.25rem 0.75rem',
+                                                            borderRadius: '12px',
+                                                            fontSize: '0.7rem',
+                                                            fontWeight: '700',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.5px',
+                                                        }}
+                                                    >
+                                                        👑 Premium
+                                                    </div>
+                                                    <div
+                                                        style={{
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '1rem',
+                                                            width: '100%',
+                                                            pointerEvents: 'none',
+                                                            marginTop: '1.5rem',
+                                                        }}
+                                                    >
+                                                        <div
+                                                            style={{
+                                                                width: '40px',
+                                                                height: '40px',
+                                                                borderRadius: '8px',
+                                                                background:
+                                                                    'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                justifyContent: 'center',
+                                                                fontSize: '1.5rem',
+                                                                flexShrink: 0,
+                                                                boxShadow: '0 2px 8px rgba(255, 215, 0, 0.3)',
+                                                            }}
+                                                        >
+                                                            🤖
+                                                        </div>
+                                                        <h3
+                                                            style={{
+                                                                margin: 0,
+                                                                color: '#ffd700',
+                                                                fontSize: '1.1rem',
+                                                                fontWeight: '600',
+                                                                flex: 1,
+                                                                whiteSpace: 'nowrap',
+                                                                overflow: 'hidden',
+                                                                textOverflow: 'ellipsis',
+                                                            }}
+                                                        >
+                                                            {bot.title || 'Untitled Premium Bot'}
+                                                        </h3>
+                                                    </div>
+                                                    <p
+                                                        style={{
+                                                            margin: 0,
+                                                            color: '#b8b8d1',
+                                                            fontSize: '0.9rem',
+                                                            lineHeight: '1.5',
+                                                            display: '-webkit-box',
+                                                            WebkitLineClamp: 2,
+                                                            WebkitBoxOrient: 'vertical',
+                                                            overflow: 'hidden',
+                                                            pointerEvents: 'none',
+                                                        }}
+                                                    >
+                                                        Premium bot with advanced features and strategies
+                                                    </p>
+                                                    <div
+                                                        style={{
+                                                            display: 'flex',
+                                                            justifyContent: 'space-between',
+                                                            alignItems: 'center',
+                                                            marginTop: 'auto',
+                                                            paddingTop: '0.5rem',
+                                                            borderTop: '1px solid rgba(255, 215, 0, 0.2)',
+                                                            pointerEvents: 'none',
+                                                        }}
+                                                    >
+                                                        <span
+                                                            style={{
+                                                                fontSize: '0.75rem',
+                                                                color: '#ffd700',
+                                                                fontWeight: '600',
+                                                                textTransform: 'uppercase',
+                                                                letterSpacing: '0.5px',
+                                                            }}
+                                                        >
+                                                            Exclusive
+                                                        </span>
+                                                        <span
+                                                            style={{
+                                                                fontSize: '0.85rem',
+                                                                color: '#ffd700',
+                                                                fontWeight: '500',
+                                                            }}
+                                                        >
+                                                            Load →
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            ))
+                                        )}
+                                    </ul>
+                                    <style>
+                                        {`
+                                            /* Responsive adjustments for premium bots */
+                                            @media (max-width: 768px) {
+                                                .premium-bots__list {
+                                                    grid-template-columns: 1fr !important;
+                                                    padding: 1rem !important;
+                                                }
+                                                .premium-bot-item h3 {
+                                                    font-size: 0.95rem !important;
+                                                    white-space: normal !important;
+                                                }
+                                                .premium-bot-item p {
+                                                    font-size: 0.8rem !important;
+                                                }
+                                            }
+
+                                            /* Extra small screens */
+                                            @media (max-width: 480px) {
+                                                .premium-bots__list {
+                                                    padding: 0.75rem !important;
+                                                    gap: 0.5rem !important;
+                                                }
+                                                .premium-bot-item {
+                                                    padding: 0.75rem !important;
+                                                }
+                                            }
+                                        `}
+                                    </style>
+                                </div>
+                            </div>
+                            </div>
+                        )}
                                             borderRadius: '16px',
                                             boxShadow: '0 8px 32px rgba(255, 215, 0, 0.2)',
                                             border: '2px solid #ffd700',
