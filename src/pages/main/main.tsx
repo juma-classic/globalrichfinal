@@ -3160,7 +3160,7 @@ const AppWrapper = observer(() => {
                             <div
                                 className='free-bots-container'
                                 style={{
-                                    background: '#ffffff',
+                                    background: '#f5f7fa',
                                     width: '100%',
                                     height: '100%',
                                     padding: '2rem',
@@ -3168,18 +3168,15 @@ const AppWrapper = observer(() => {
                                     flexDirection: 'column',
                                     overflowY: 'auto',
                                     overflowX: 'hidden',
-                                    boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.05)',
                                 }}
                             >
                                 <h2
                                     style={{
-                                        color: '#1a1a2e',
+                                        color: '#2c3e50',
                                         fontSize: '2rem',
                                         fontWeight: '700',
-                                        marginBottom: '1.5rem',
+                                        marginBottom: '2rem',
                                         textAlign: 'center',
-                                        borderBottom: '3px solid #0d9488',
-                                        paddingBottom: '1rem',
                                         flexShrink: 0,
                                     }}
                                 >
@@ -3225,119 +3222,81 @@ const AppWrapper = observer(() => {
                                                 key={index}
                                                 className='free-bot-item'
                                                 style={{
-                                                    background: '#f8f9fa',
-                                                    borderRadius: '16px',
-                                                    padding: '1.5rem',
+                                                    background: '#ffffff',
+                                                    borderRadius: '20px',
+                                                    padding: '2rem',
                                                     display: 'flex',
                                                     flexDirection: 'column',
-                                                    gap: '1rem',
-                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                                                    gap: '1.5rem',
+                                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                                                     transition: 'all 0.3s ease',
-                                                    cursor: 'pointer',
-                                                    border: '2px solid #e0e0e0',
+                                                    border: 'none',
                                                 }}
-                                                onMouseEnter={e => {
-                                                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
-                                                    e.currentTarget.style.boxShadow =
-                                                        '0 12px 24px rgba(13, 148, 136, 0.2)';
-                                                    e.currentTarget.style.borderColor = '#0d9488';
-                                                    e.currentTarget.style.background = '#ffffff';
-                                                }}
-                                                onMouseLeave={e => {
-                                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
-                                                    e.currentTarget.style.borderColor = '#e0e0e0';
-                                                    e.currentTarget.style.background = '#f8f9fa';
-                                                }}
-                                                onClick={() => handleBotClick(bot)}
                                             >
+                                                <h3
+                                                    style={{
+                                                        margin: 0,
+                                                        color: '#2c3e50',
+                                                        fontSize: '1.25rem',
+                                                        fontWeight: '700',
+                                                        textTransform: 'uppercase',
+                                                        letterSpacing: '0.5px',
+                                                    }}
+                                                >
+                                                    {bot.title?.replace('.xml', '') || 'Untitled Bot'}
+                                                </h3>
                                                 <div
                                                     style={{
                                                         display: 'flex',
                                                         alignItems: 'center',
-                                                        gap: '1rem',
-                                                        width: '100%',
-                                                        pointerEvents: 'none',
+                                                        gap: '0.5rem',
+                                                        color: '#7f8c8d',
                                                     }}
                                                 >
-                                                    <div
-                                                        style={{
-                                                            width: '40px',
-                                                            height: '40px',
-                                                            borderRadius: '8px',
-                                                            background:
-                                                                'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            fontSize: '1.5rem',
-                                                            flexShrink: 0,
-                                                        }}
-                                                    >
-                                                        🤖
-                                                    </div>
-                                                    <h3
-                                                        style={{
-                                                            margin: 0,
-                                                            color: '#1a1a2e',
-                                                            fontSize: '1.1rem',
-                                                            fontWeight: '600',
-                                                            flex: 1,
-                                                            whiteSpace: 'nowrap',
-                                                            overflow: 'hidden',
-                                                            textOverflow: 'ellipsis',
-                                                        }}
-                                                    >
-                                                        {bot.title || 'Untitled Bot'}
-                                                    </h3>
+                                                    <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                    <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                    <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                    <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                    <span style={{ fontSize: '1.2rem' }}>⭐</span>
                                                 </div>
                                                 <p
                                                     style={{
                                                         margin: 0,
-                                                        color: '#6c757d',
-                                                        fontSize: '0.9rem',
-                                                        lineHeight: '1.5',
-                                                        display: '-webkit-box',
-                                                        WebkitLineClamp: 2,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        overflow: 'hidden',
-                                                        pointerEvents: 'none',
+                                                        color: '#7f8c8d',
+                                                        fontSize: '0.95rem',
+                                                        lineHeight: '1.6',
                                                     }}
                                                 >
-                                                    Click to load this bot into your workspace
+                                                    Advanced trading bot. Features automated trading, risk management, and profit optimization.
                                                 </p>
-                                                <div
+                                                <button
                                                     style={{
-                                                        display: 'flex',
-                                                        justifyContent: 'space-between',
-                                                        alignItems: 'center',
-                                                        marginTop: 'auto',
-                                                        paddingTop: '0.5rem',
-                                                        borderTop: '1px solid #e0e0e0',
-                                                        pointerEvents: 'none',
+                                                        width: '100%',
+                                                        padding: '1rem',
+                                                        background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+                                                        border: 'none',
+                                                        borderRadius: '50px',
+                                                        color: '#ffffff',
+                                                        fontSize: '1rem',
+                                                        fontWeight: '600',
+                                                        textTransform: 'uppercase',
+                                                        letterSpacing: '1px',
+                                                        cursor: 'pointer',
+                                                        transition: 'all 0.3s ease',
+                                                        boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
                                                     }}
+                                                    onMouseEnter={e => {
+                                                        e.currentTarget.style.transform = 'translateY(-2px)';
+                                                        e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+                                                    }}
+                                                    onMouseLeave={e => {
+                                                        e.currentTarget.style.transform = 'translateY(0)';
+                                                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
+                                                    }}
+                                                    onClick={() => handleBotClick(bot)}
                                                 >
-                                                    <span
-                                                        style={{
-                                                            fontSize: '0.75rem',
-                                                            color: '#0d9488',
-                                                            fontWeight: '600',
-                                                            textTransform: 'uppercase',
-                                                            letterSpacing: '0.5px',
-                                                        }}
-                                                    >
-                                                        Free
-                                                    </span>
-                                                    <span
-                                                        style={{
-                                                            fontSize: '0.85rem',
-                                                            color: '#0d9488',
-                                                            fontWeight: '500',
-                                                        }}
-                                                    >
-                                                        Load →
-                                                    </span>
-                                                </div>
+                                                    Load Free Bot
+                                                </button>
                                             </li>
                                         ))
                                     )}
@@ -3390,7 +3349,7 @@ const AppWrapper = observer(() => {
                                 <div
                                     className='premium-bots-container'
                                     style={{
-                                        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+                                        background: '#f5f7fa',
                                         width: '100%',
                                         height: '100%',
                                         padding: '2rem',
@@ -3398,7 +3357,6 @@ const AppWrapper = observer(() => {
                                         flexDirection: 'column',
                                         overflowY: 'auto',
                                         overflowX: 'hidden',
-                                        boxShadow: 'inset 0 0 20px rgba(255, 215, 0, 0.1)',
                                     }}
                                 >
                                     <div
@@ -3407,38 +3365,22 @@ const AppWrapper = observer(() => {
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             gap: '1rem',
-                                            marginBottom: '1.5rem',
-                                            paddingBottom: '1rem',
-                                            borderBottom: '3px solid #ffd700',
+                                            marginBottom: '2rem',
                                             flexShrink: 0,
                                         }}
                                     >
-                                        <span style={{ fontSize: '2rem' }}>👑</span>
-                                        <h2
-                                            style={{
-                                                color: '#ffd700',
-                                                fontSize: '2rem',
-                                                fontWeight: '700',
-                                                margin: 0,
-                                                textShadow: '0 2px 8px rgba(255, 215, 0, 0.3)',
-                                            }}
-                                        >
-                                            Premium Trading Bots
-                                        </h2>
-                                        <span style={{ fontSize: '2rem' }}>👑</span>
-                                    </div>
-                                    <p
+                                    <h2
                                         style={{
+                                            color: '#2c3e50',
+                                            fontSize: '2rem',
+                                            fontWeight: '700',
+                                            margin: 0,
                                             textAlign: 'center',
-                                            color: '#ffd700',
-                                            fontSize: '0.95rem',
-                                            marginBottom: '1.5rem',
-                                            opacity: 0.9,
-                                            flexShrink: 0,
                                         }}
                                     >
-                                        Exclusive access for premium members
-                                    </p>
+                                        👑 Premium Trading Bots
+                                    </h2>
+                                    </div>
                                     <div
                                         className='premium-bots-scroll-container'
                                         style={{
@@ -3479,139 +3421,81 @@ const AppWrapper = observer(() => {
                                                     key={index}
                                                     className='premium-bot-item'
                                                     style={{
-                                                        background: 'linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%)',
-                                                        borderRadius: '16px',
-                                                        padding: '1.5rem',
+                                                        background: '#ffffff',
+                                                        borderRadius: '20px',
+                                                        padding: '2rem',
                                                         display: 'flex',
                                                         flexDirection: 'column',
-                                                        gap: '1rem',
-                                                        boxShadow: '0 4px 16px rgba(255, 215, 0, 0.15)',
+                                                        gap: '1.5rem',
+                                                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                                                         transition: 'all 0.3s ease',
-                                                        cursor: 'pointer',
-                                                        border: '2px solid #ffd700',
-                                                        position: 'relative',
-                                                        overflow: 'hidden',
+                                                        border: 'none',
                                                     }}
-                                                    onMouseEnter={e => {
-                                                        e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
-                                                        e.currentTarget.style.boxShadow =
-                                                            '0 12px 32px rgba(255, 215, 0, 0.4)';
-                                                        e.currentTarget.style.borderColor = '#ffed4e';
-                                                    }}
-                                                    onMouseLeave={e => {
-                                                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                                        e.currentTarget.style.boxShadow =
-                                                            '0 4px 16px rgba(255, 215, 0, 0.15)';
-                                                        e.currentTarget.style.borderColor = '#ffd700';
-                                                    }}
-                                                    onClick={() => handleBotClick(bot)}
                                                 >
-                                                    <div
+                                                    <h3
                                                         style={{
-                                                            position: 'absolute',
-                                                            top: '10px',
-                                                            right: '10px',
-                                                            background: '#ffd700',
-                                                            color: '#1a1a2e',
-                                                            padding: '0.25rem 0.75rem',
-                                                            borderRadius: '12px',
-                                                            fontSize: '0.7rem',
+                                                            margin: 0,
+                                                            color: '#2c3e50',
+                                                            fontSize: '1.25rem',
                                                             fontWeight: '700',
                                                             textTransform: 'uppercase',
                                                             letterSpacing: '0.5px',
                                                         }}
                                                     >
-                                                        👑 Premium
-                                                    </div>
+                                                        {bot.title?.replace('.xml', '') || 'Untitled Premium Bot'}
+                                                    </h3>
                                                     <div
                                                         style={{
                                                             display: 'flex',
                                                             alignItems: 'center',
-                                                            gap: '1rem',
-                                                            width: '100%',
-                                                            pointerEvents: 'none',
-                                                            marginTop: '1.5rem',
+                                                            gap: '0.5rem',
+                                                            color: '#7f8c8d',
                                                         }}
                                                     >
-                                                        <div
-                                                            style={{
-                                                                width: '40px',
-                                                                height: '40px',
-                                                                borderRadius: '8px',
-                                                                background:
-                                                                    'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
-                                                                display: 'flex',
-                                                                alignItems: 'center',
-                                                                justifyContent: 'center',
-                                                                fontSize: '1.5rem',
-                                                                flexShrink: 0,
-                                                                boxShadow: '0 2px 8px rgba(255, 215, 0, 0.3)',
-                                                            }}
-                                                        >
-                                                            🤖
-                                                        </div>
-                                                        <h3
-                                                            style={{
-                                                                margin: 0,
-                                                                color: '#ffd700',
-                                                                fontSize: '1.1rem',
-                                                                fontWeight: '600',
-                                                                flex: 1,
-                                                                whiteSpace: 'nowrap',
-                                                                overflow: 'hidden',
-                                                                textOverflow: 'ellipsis',
-                                                            }}
-                                                        >
-                                                            {bot.title || 'Untitled Premium Bot'}
-                                                        </h3>
+                                                        <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                        <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                        <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                        <span style={{ fontSize: '1.2rem' }}>⭐</span>
+                                                        <span style={{ fontSize: '1.2rem' }}>⭐</span>
                                                     </div>
                                                     <p
                                                         style={{
                                                             margin: 0,
-                                                            color: '#b8b8d1',
-                                                            fontSize: '0.9rem',
-                                                            lineHeight: '1.5',
-                                                            display: '-webkit-box',
-                                                            WebkitLineClamp: 2,
-                                                            WebkitBoxOrient: 'vertical',
-                                                            overflow: 'hidden',
-                                                            pointerEvents: 'none',
+                                                            color: '#7f8c8d',
+                                                            fontSize: '0.95rem',
+                                                            lineHeight: '1.6',
                                                         }}
                                                     >
-                                                        Premium bot with advanced features and strategies
+                                                        Advanced trading bot: AUTO MAX WITH S.L. Features automated trading, risk management, and profit optimization.
                                                     </p>
-                                                    <div
+                                                    <button
                                                         style={{
-                                                            display: 'flex',
-                                                            justifyContent: 'space-between',
-                                                            alignItems: 'center',
-                                                            marginTop: 'auto',
-                                                            paddingTop: '0.5rem',
-                                                            borderTop: '1px solid rgba(255, 215, 0, 0.2)',
-                                                            pointerEvents: 'none',
+                                                            width: '100%',
+                                                            padding: '1rem',
+                                                            background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+                                                            border: 'none',
+                                                            borderRadius: '50px',
+                                                            color: '#ffffff',
+                                                            fontSize: '1rem',
+                                                            fontWeight: '600',
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '1px',
+                                                            cursor: 'pointer',
+                                                            transition: 'all 0.3s ease',
+                                                            boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
                                                         }}
+                                                        onMouseEnter={e => {
+                                                            e.currentTarget.style.transform = 'translateY(-2px)';
+                                                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+                                                        }}
+                                                        onMouseLeave={e => {
+                                                            e.currentTarget.style.transform = 'translateY(0)';
+                                                            e.currentTarget.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
+                                                        }}
+                                                        onClick={() => handleBotClick(bot)}
                                                     >
-                                                        <span
-                                                            style={{
-                                                                fontSize: '0.75rem',
-                                                                color: '#ffd700',
-                                                                fontWeight: '600',
-                                                                textTransform: 'uppercase',
-                                                                letterSpacing: '0.5px',
-                                                            }}
-                                                        >
-                                                            Exclusive
-                                                        </span>
-                                                        <span
-                                                            style={{
-                                                                fontSize: '0.85rem',
-                                                                color: '#ffd700',
-                                                                fontWeight: '500',
-                                                            }}
-                                                        >
-                                                            Load →
-                                                        </span>
-                                                    </div>
+                                                        Load Premium Bot
+                                                    </button>
                                                 </li>
                                             ))
                                         )}
