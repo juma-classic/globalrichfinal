@@ -581,6 +581,7 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
+                'Tick Hunter Bot.xml',
                 'PATEL (with Entry).xml',
                 'dollar_flipper.xml',
                 'UnderoverAutoswitch.xml',
