@@ -581,7 +581,6 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                'Tick Hunter Bot.xml',
                 'PATEL (with Entry).xml',
                 'dollar_flipper.xml',
                 'UnderoverAutoswitch.xml',
@@ -638,6 +637,7 @@ const AppWrapper = observer(() => {
 
             if (premiumStatus) {
                 const premiumBotFiles = [
+                    'Tick Hunter Bot.xml',
                     'Auto Rich.xml',
                     'AlphaEdge.xml',
                     'Premium Zeus Master.xml',
